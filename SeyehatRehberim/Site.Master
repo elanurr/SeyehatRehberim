@@ -1,0 +1,137 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="SeyehatRehberim.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %></title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="container-fluid">
+
+            <div class="row mb-3 mt-3">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <div class="float-start">
+                            <h1 style="position: absolute; font-size: 20px; color: azure">seyhatrehberim.com</h1>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="float-end">
+                            <h1 style="position: absolute; color: #F55129; font-family: Arial;">İSTANBUL</h1>
+                        </div>
+                    </div>
+                    <img src="Images/header.jpg" style="width: 100%;" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="text-center mb-4">
+                        <nav class="nav flex-column rounded-4" style="background-color: #d0e6f4;">
+                            <a class="nav-link" style="border-bottom: 2px solid; height: 60px; font-weight: bold; font-size: 17px;" href="Default.aspx">GENEL BİLGİ</a>
+                            <a class="nav-link" style="border-bottom: 2px solid; height: 60px; font-weight: bold; font-size: 17px;" href="NasilGidilir.aspx">NASIL GİDİLİR?</a>
+                            <a class="nav-link" style="border-bottom: 2px solid; height: 60px; font-weight: bold; font-size: 17px;" href="DogalAlanlar.aspx">DOĞAL ALANLAR</a>
+                            <a class="nav-link" style="border-bottom: 2px solid; height: 60px; font-weight: bold; font-size: 17px;" href="TarihiYerler.aspx">TARİHİ YERLER</a>
+                            <a class="nav-link" style="border-bottom: 2px solid; height: 60px; font-weight: bold; font-size: 17px;" href="NeYenir.aspx">NE YENİR?</a>
+                            <a class="nav-link" style="height: 60px; font-weight: bold; font-size: 17px;" href="GeziRotalari.aspx">GEZİ ROTALARI</a>
+                        </nav>
+                    </div>
+
+                    <div class="p-2" style="background-color: #d0e6f4;">
+                        <h5>GİRİŞ YAP-ÜYE OL</h5>
+                        <div class="row mb-2">
+                            <div class="col-md-6">
+                                <asp:Label CssClass="form-label" ID="KullaniciAdiLabel" runat="server" Text="KULLANICI ADI"></asp:Label>
+                            </div>
+                            <div class="col-md-6">
+                                <asp:TextBox ID="KullaniciAdi" runat="server" CssClass="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-6">
+                                <asp:Label CssClass="form-label" ID="SifreLabel" runat="server" Text="ŞİFRE"></asp:Label>
+                            </div>
+                            <div class="col-md-6">
+                                <asp:TextBox ID="Sifre" runat="server" CssClass="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <asp:Button ID="UyeOlBtn" runat="server" OnCommand="UyeOl_Click" Text="ÜYE OL" CssClass="btn btn-sm btn-light form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                <asp:Button ID="GirisYapBtn" runat="server" OnCommand="GirisYap_Click" Text="GİRİŞ YAP" CssClass="btn btn-sm btn-light form-control" />
+                                <asp:Button ID="CikisYapBtn" runat="server" OnCommand="CikisYap_Click" Text="ÇIKIŞ YAP" Visible="False" CssClass="btn btn-sm btn-light form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+
+                <div class="col-md-2 text-center">
+                    <div class="p-2">
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <img src="Images/gorsel1.jpg" style="width: 190px;" />
+                                <asp:LinkButton ID="Haber1" runat="server" CssClass="btn btn-link" OnCommand="Haber1_Click">İSTANBUL'DAKİ EN İYİ KAHVALTI MEKANLARI!!</asp:LinkButton>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <img src="Images/gorsel2.jpg" style="width: 190px;" />
+                                <asp:LinkButton ID="Haber2" runat="server" CssClass="btn btn-link" OnCommand="Haber2_Click">İSTANBUL'DAKİ EN İYİ OTELLER!!</asp:LinkButton>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="Images/gorsel3.jpg" style="width: 190px;" />
+                                <asp:LinkButton ID="Haber3" runat="server" CssClass="btn btn-link" OnCommand="Haber3_Click">İSTANBUL'DAKİ EN İYİ RESTORANTLAR!!</asp:LinkButton>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+</body>
+</html>
